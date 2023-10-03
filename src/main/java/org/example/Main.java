@@ -8,6 +8,7 @@
  */
 
 package org.example;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -24,16 +25,18 @@ public class Main {
         System.out.println(studentList);
 
         // 0. Sort a Collection by creating an instance of a Comparator class
-        // and passing it into Collections.sort() as an argument.
+        // (i.e. StudentNameComparator ) and pass it into Collections.sort()
+        // as an argument.
         // (This is the more traditional approach)
 
         Collections.sort(studentList, new StudentNameComparator());
 
-        // 1. Define a Comparator to compare Students by name,
+
+        // 1. Define a Comparator to compare Student objects by name,
         // using an 'Anonymous Inner Class' definition.
-        // The class is defined anonymously (with no class name)  within the
-        // call to the sort method, and then it is instantiated as a Comparator and
-        // passed as an argument.
+        // The class is defined anonymously (with no class name) within the
+        // call to the sort method, and then it is instantiated as a Comparator
+        // and passed as an argument.
         //
         Collections.sort(studentList, new Comparator<Student>() {
             @Override
@@ -44,20 +47,21 @@ public class Main {
 
         System.out.println(studentList);
 
-        // 2. Lambda Function used as Comparator - to compare Student objects by name.
-        // An ArrayList implements the List interface and the List defines a default sort method
+        // 2. Use Lambda Function to define Comparator.
+        // Compare Student objects by name field.
+        // An ArrayList implements the List interface, and the List defines a default sort method
         // that expects a Comparator as an argument to determine the ordering.
         // The Lambda function is a "stripped down" way of defining the compare function
         // in the expected Comparator.
 
         studentList.sort((Student s1, Student s2) -> s1.getName().compareTo(s2.getName()));
 
-        // The advantage of this approach is that we don't have to rely on a Comparator
-        // already defined in the Student class, or in a Comparator class.
+        // The advantage of this approach is that it is a bit more readable than
+        // the anonymous inner class approach.
         // We simply define the compare method as a lambda (on the fly) where
         // the call is being made.
 
-        // 3. Pass in Lambda Function to compare Students
+        // 3. Shortened Lambda Function to compare Students
         //    The lambda can be further abbreviated by leaving out the types of
         //    the parameters, which are then inferred from the type returned by getName()
         //
@@ -65,8 +69,8 @@ public class Main {
 
         // The advantage of using the lambda style is that the code is concise
         // ( "reduced boilerplate code" )
-        // and the logic of the 'compare' is located where we are
-        // making the call to sort() the list.
+        // and the logic of the 'compare' is located where the call is being made
+        // to sort() the list.
         // However, you need to familiarise yourself with its syntax.
 
         // 4. Reversing order - use Comparator Helper function - reverse()
