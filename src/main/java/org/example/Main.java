@@ -24,7 +24,7 @@ public class Main {
         System.out.println(studentList);
 
         // 0. Sort a Collection by creating an instance of a Comparator class
-        // and passing that into sort() as an argument
+        // and passing it into Collections.sort() as an argument.
         // (This is the more traditional approach)
 
         Collections.sort(studentList, new StudentNameComparator());
@@ -45,7 +45,7 @@ public class Main {
         System.out.println(studentList);
 
         // 2. Lambda Function used as Comparator - to compare Student objects by name.
-        // An ArrayList implements the List interface and the List defines a sort method
+        // An ArrayList implements the List interface and the List defines a default sort method
         // that expects a Comparator as an argument to determine the ordering.
         // The Lambda function is a "stripped down" way of defining the compare function
         // in the expected Comparator.
@@ -54,8 +54,8 @@ public class Main {
 
         // The advantage of this approach is that we don't have to rely on a Comparator
         // already defined in the Student class, or in a Comparator class.
-        // We simply create the compare function as a lambda on the fly where
-        // we aare making the call.
+        // We simply define the compare method as a lambda (on the fly) where
+        // the call is being made.
 
         // 3. Pass in Lambda Function to compare Students
         //    The lambda can be further abbreviated by leaving out the types of
@@ -69,7 +69,7 @@ public class Main {
         // making the call to sort() the list.
         // However, you need to familiarise yourself with its syntax.
 
-        // 4. Reversing order - use Comparator helper function - reverse()
+        // 4. Reversing order - use Comparator Helper function - reverse()
         // - assign lambda function to a variable (here called comparator)
         // - pass comparator with reverse() helper/modifier into sort()
         //
@@ -80,12 +80,11 @@ public class Main {
         studentList.sort(Student::compareByName);
 
 
-
         studentList.sort(Student::compareByNameThenAge);
 
         // Comparator with multiple conditions is used to
         // sort in more complex ways.
-        // Here we sort on "age within name"
+        // Here we define a lambda to sort on "age within name"
         // Logic:    if names are the same, then we consider age
         //           else, if names not the same then only consider name.
         //
