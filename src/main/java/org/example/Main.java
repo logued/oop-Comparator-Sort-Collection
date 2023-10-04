@@ -63,9 +63,14 @@ public class Main {
 
         // 3. Shortened Lambda Function to compare Students
         //    The lambda can be further abbreviated by leaving out the types of
-        //    the parameters, which are then inferred from the type returned by getName()
+        //    the parameters, which are then inferred from the type of the list.
         //
         studentList.sort((s1, s2) -> s1.getName().compareTo(s2.getName()));
+
+        //TODO
+        // 1. sort by age using lambda
+        // 2. sort by age within name using lambda
+
 
         // The advantage of using the lambda style is that the code is concise
         // ( "reduced boilerplate code" )
